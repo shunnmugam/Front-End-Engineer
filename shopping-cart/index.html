@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Shopping Cart</title>
+	<meta charset="utf-8">
+  	<meta name="viewport" content="width=device-width, initial-scale=1">
+  	<link rel="stylesheet" type="text/css" href="./assets/css/bootstrap.min.css">
+  	<link rel="stylesheet" type="text/css" href="./assets/css/main.css">
+	<script src="./assets/js/angular.min.js"></script>
+</head>
+<body ng-app="cart">
+	<div class="container" ng-controller="cartController">
+		<div class="cart-container col-xs-12 no-pad">
+			<div class="cart-header">
+				<h6 class="{{blink_class}}">My Cart({{products.length}})</h6>
+			</div>
+			<div class="product-container">
+				<ul class="products col-xs-12 no-pad">
+					<li class="product col-xs-12" ng-repeat="product in products">
+						<div class="col-xs-4 col-sm-2 col-md-2 text-center">
+							<img class="product-img img-responsive" ng-src="./assets/img/{{product.image}}">
+						</div>
+						<div class="col-xs-8 col-sm-9 col-md-10">
+							<p class="product-name">
+								{{product.name}}
+							</p>
+							<p class="product-price">
+								{{product.price}}
+							</p>
+						</div>
+						<div class="col-xs-12 no-pad action-sec text-center">
+							<div class="col-xs-4 no-pad">
+								<button class="round-btn" ng-disabled="product.count<=1" ng-click="subCount($index)">
+									-
+								</button>
+								<input type="text" class="count-box text-center" name="count-{{product.id}}" ng-model="product.count"/>
+								<button class="round-btn" ng-click="addCount($index)">
+									+
+								</button>
+							</div>
+							<div class="col-xs-8 text-center remove-text" ng-click="remove($index)">
+								REMOVE
+							</div>
+						</div>
+					</li>
+				</ul>
+				<h5 ng-if="products.length==0" class="text-center">
+					OOPS... Your cart is empty
+				</h5>
+			</div>
+			<div class="footer-container col-xs-12" ng-if="products.length!=0">
+				<button class="col-xs-6 btn-footer">
+					Continue shopping
+				</button>
+				<button class="col-xs-6 btn-footer active">
+					Place Order
+				</button>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">
+		var app = angular.module('cart', []);
+		app.controller('cartController', function($scope,$timeout) {
+		    $scope.products = [
+		    {
+		    	id : 1,
+		    	name : 'Lenova K6 power',
+		    	price : 398,
+		    	image : 'mobile.png',
+		    	count : 1
+		    },{
+		    	id : 1,
+		    	name : 'Lenova K7 power',
+		    	price : 398,
+		    	image : 'mobile.png',
+		    	count : 1
+		    },{
+		    	id : 1,
+		    	name : 'Lenova K8 power',
+		    	price : 398,
+		    	image : 'mobile.png',
+		    	count : 1
+		    }
+		    ];
+		    $scope.blink_class = '';
+
+		    $scope.addCount = function(index){
+		    	$scope.products[index].count++;
+		    }
+
+		    $scope.subCount = function(index)
+		    {
+		    	if($scope.products[index].count>1)
+		    		$scope.products[index].count--;
+		    }
+		    $scope.remove = function(index)
+		    {
+		    	//alert(index)
+		    	$scope.products.splice(index,1);
+		    	$scope.blink_class = 'blinking';
+		    	$timeout( function(){
+		            $scope.blink_class = "";
+		        }, 5000 );
+		    }
+		});
+	</script>
+</body>
+</html>

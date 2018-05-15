@@ -1,0 +1,66 @@
+.cart-container {
+    box-shadow: 1px 1px 1px 1px #c5c5c5;
+}
+.col-xs-12.action-sec.text-center {
+    margin: 5px 0px;
+}
+input.count-box {
+    width: 40px;
+}
+li.product.col-xs-12.ng-scope {
+    padding: 10px 0px;
+    list-style: none;
+    border-bottom: 1px solid #c5c5c5;
+}
+.no-pad
+{
+	padding: 0px;
+}
+.cart-header {
+    padding: 10px;
+    border-bottom: 1px solid #eaeaea;
+}
+button.round-btn {
+	border: none;
+    border-radius: 50%;
+    border: 1px solid #c5c5c5;
+    box-shadow: none;
+    background-color: white;
+}
+.product-img
+{
+	margin: 0 auto;
+}
+button.btn-footer {
+    background: white;
+    border: unset;
+    border: 1px solid #c5c5c5;
+    margin: 4px 2.5%;
+    width: 45%;
+    padding: 5px 0px;
+    text-transform: uppercase;
+    font-size: 71%;
+    font-weight: bold;
+}
+.remove-text {
+    font-size: 11px;
+    font-weight: bold;
+}
+p.product-price {
+    margin-top: 16px;
+}
+button.btn-footer.active {
+    background-color: #f06231;
+    color: white;
+}
+.blinking{
+    animation:blinkingText 0.8s infinite;
+    font-weight: bold;
+}
+@keyframes blinkingText{
+    0%{     color: #000;    }
+    49%{    color: #f06231; }
+    50%{    color: #f06231; }
+    99%{    color: #000;  }
+    100%{   color: #000;    }
+}
