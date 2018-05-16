@@ -83,6 +83,11 @@ app.controller('landingPageController',['$scope','$http',function($scope,$http){
 	    $scope.my_fav_array.push($scope.news_array[index])
 	}
 
+  $scope.removeFromFav = function(index)
+  {
+    $scope.my_fav_array.splice(index,1);
+  }
+
 	$scope.getNews();
 }]);
 

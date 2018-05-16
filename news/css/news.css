@@ -409,9 +409,9 @@ strong {
 }
 
 .sidenav a {
-    padding: 8px 8px 8px 32px;
+    padding: 6px 5px 4px 1px;
     text-decoration: none;
-    font-size: 25px;
+    font-size: 13px;
     color: #818181;
     display: block;
     transition: 0.3s;
@@ -434,7 +434,7 @@ div#mySidenav.open {
 
 @media screen and (max-height: 450px) {
   .sidenav {padding-top: 15px;}
-  .sidenav a {font-size: 18px;}
+  .sidenav a {font-size: 13px;}
 }
 
 .my-fav {
